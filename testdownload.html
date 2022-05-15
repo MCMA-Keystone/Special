@@ -1,0 +1,14 @@
+<body>
+  <h3>Hola!</h3>
+  <a style="display: none;" id="downlink" onclick="kk()">a</a>
+  <script>
+    function download(file) {
+      var link = document.getElementById("downlink");
+      link.setAttribute("download",file);
+      link.click();
+    }
+    function kk(){
+      download("./mcffqinnout.png");
+    }
+  </script>
+</body>
