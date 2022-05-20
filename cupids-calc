@@ -1,0 +1,100 @@
+<html>
+	<head></head>
+	<body style="background-color: #ffc2e0; margin-left: 50px; margin-top: 50px">
+		<div>
+			<p>Version 2.0</p>
+			<h1 style="font-family: avenir;">The Cupid's Calculator</h1>
+			<p style="width: 400px;font-family: avenir;">Calculate the probability of the two earth-derived people getting in love. Inspired by Kevin's devotion in finding the ultimate algorithm of love. Only for entertainment, don't take it seriously. Please enter <b>valid names</b> for this machine to work. Cheers!</p></br>
+		</div>
+		<div>
+			<input id="p1" placeholder="Person 1" style="font-family: avenir; font-size:20"></input>
+			<br/><br/>
+			<input id="p2" placeholder="Person 2" style="font-family: avenir; font-size:20"></input>
+			<br/><br/>
+			<button id="Calculate" onclick="Calculate()" style="font-family: avenir; font-size:20">Calculate</button>
+			<h2 id="results" style="font-family: avenir"><h2>
+			<script>
+
+				const datap1 = ['NaN'];
+				const datap2 = ['NaN'];
+				const dataR = [0];
+
+				function Calculate(){
+
+					var lv = document.getElementById("lv");
+					var lm = document.getElementById("lm");
+					if (Math.random() < 0.2){
+						lv.setAttribute("style", "opacity: 0.6; width: 800px; position:absolute; top:0px; ; left: 0px; z-index: -3");
+						console.log("lv");
+					} else if (Math.random() < 0.1){
+						lm.setAttribute("style", "opacity: 0.6; width: 800px; position:absolute; top:0px; ; left: 0px; z-index: -3");
+						console.log("lm");
+					}
+
+					var p1 = document.getElementById("p1").value;
+					var p2 = document.getElementById("p2").value;
+					var results = document.getElementById("results");
+
+					if ((p1.length>1) && (p2.length>1) && (p1!="Tata") && (p1!="tata") && (p1!="李奥")){
+						console.log("Length is greater than 1");
+						
+						var inList = false;
+						for (var i=0; i<datap1.length; i+=1){
+							console.log(i, datap1[i], p1, datap2[i], p2)
+							if (datap1[i]==p1 && datap2[i]==p2){
+								inList = true;
+								results.innerHTML = String(dataR[datap1.indexOf(p1)])+"%";
+								console.log("repeated");
+							}
+						}
+
+						if (inList == false){
+							console.log("this is new");
+							if (Math.random()<0.05){
+								var randomNumber = Math.round(Math.random()*100000);
+							} else if (Math.random()>0.95){
+								var randomNumber = Math.round(Math.random()*10);
+							} else {
+								var randomNumber = Math.round(Math.random()*100);
+							}
+							results.innerHTML = String(randomNumber)+"%";
+							datap1.push(p1);
+							datap2.push(p2);
+							dataR.push(randomNumber);
+						}
+
+					} else {
+						results.innerHTML = "Invalid Input";
+					}
+				}
+
+				let pranked = 0;
+				function Prank(){
+					if (pranked==0){
+						if (Math.random()<0.5){
+							alert("By clicking OK, you are acknowledging that you are a true idiot. Click \"REPORT\" to report your comment");
+						} else {
+							alert("fuck you");
+						}
+						pranked += 1;
+					} else if (pranked > 0){
+						if (Math.random()>0.1){
+							alert("Welcome back, idiot.");
+						} else {
+							alert("fuck you")
+						}
+					}
+				}
+
+			</script>
+		</div>
+		<div>
+			<br/><br/><br/>
+			<input placeholder="Comment" style="width: 250px; height: 35px;font-family:avenir; vertical-align: top;">
+			<button onclick="Prank()" style="width: 100px ;height: 35px; font-family: avenir; font-size: 15px">Report</button>
+			<br/><br/><br/>
+			<img id="lv" src="https://i.imgflip.com/1q1t8a.jpg" style="opacity:0; width: 800px;ou  "></img>
+			<img id="lm" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2MhbIcF7zF6aRhINkmthu2YKbhGk4fgGYaQ&usqp=CAU" style="opacity:0; width: 800px;"></img>
+		</div>
+	</body>
+</html>
